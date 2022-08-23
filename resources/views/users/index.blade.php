@@ -28,7 +28,7 @@
           
           @foreach ($users as $user)
           <tr>  
-            <th scope='row'>1</th>
+            {{-- <th scope='row'>1</th> --}}
             <td>{{$user->name}}</td>
             <td>{{$user->cpf}}</td>
             <td>{{$user->email}}</td>

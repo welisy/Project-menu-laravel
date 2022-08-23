@@ -35,10 +35,14 @@ Route::get('/principalcardapio', 'App\Http\Controllers\PrincipalcardapioControll
 
 Route::get('/produtos', 'App\Http\Controllers\ProdutosController@produtos');
 
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::resource('user', App\Http\Controllers\UserController::class);
+});
+
+Route::middleware('auth')->group(function () {
+    Route::resource('product', App\Http\Controllers\ProductController::class);
 });
