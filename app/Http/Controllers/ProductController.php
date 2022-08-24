@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -24,7 +25,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create( )
+    public function create(Product $product)
     {
         return view('products.create');
     }
@@ -37,7 +38,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        Product::store($data);
+
+        return redirect()->route('product.index');
     }
 
     /**
@@ -46,9 +51,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        return view('products.show', ['product'=>$product]);
     }
 
     /**
@@ -69,9 +74,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $data = $request->all();
+
+        $product->update($data);
+
+        redirect()->route('product.index');
     }
 
     /**

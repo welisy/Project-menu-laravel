@@ -33,11 +33,9 @@ Route::get('/pedidos', 'App\Http\Controllers\PedidosController@pedidos');
 
 Route::get('/principalcardapio', 'App\Http\Controllers\PrincipalcardapioController@principalcardapio');
 
-Route::get('/produtos', 'App\Http\Controllers\ProdutosController@produtos');
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::resource('user', App\Http\Controllers\UserController::class);
