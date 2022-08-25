@@ -15,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $establishment_id = \Auth::user()->establishemnt_id;
+        $products = Product::where('establishment_id', $establishment_id) ->get();
 
         return view('products.index', ['products'=> $products]);
     }
@@ -40,7 +41,10 @@ class ProductController extends Controller
     {
         $data = $request->all();
 
-        Product::store($data);
+        $data['price_cents'] = (int) ($data['price'] * 100);
+        $data['establishment_id'] = \Auth::user()->establishment_id;
+        
+        Product::create($data);
 
         return redirect()->route('product.index');
     }

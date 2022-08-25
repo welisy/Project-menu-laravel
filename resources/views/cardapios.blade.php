@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('body')
-<div class="container">
+<div class="container mt-5">
     <h1 style="color:white">Cardápios</h1> <br>
     <button type="button" class="btn btn-primary m-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Adicionar Cardápio
@@ -76,7 +76,6 @@
           </div>
         </div>
       </div>
-    </div>
 
     <!-- TABLE -->
     <table class="table bg-white m-2">

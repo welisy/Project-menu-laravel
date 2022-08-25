@@ -16,6 +16,7 @@
 
   <nav class="navbar navbar-expand-lg vh-10 vw-100 d-flex justify-content" style="background-color: #00a491">
     <div class="container-fluid">
+
       <a class="navbar-brand text-light" href="/gerente"><h2>Meu Cardápio</h2></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,11 +25,18 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item text-white">
-            <a class="nav-link active text-light" aria-current="page" href="/gerente">Menu Principal</a>
+            <a class="nav-link active text-light" aria-current="page" href="/gerente">
+              
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-menu-button-wide" viewBox="0 0 16 16">
+              <path d="M0 1.5A1.5 1.5 0 0 1 1.5 0h13A1.5 1.5 0 0 1 16 1.5v2A1.5 1.5 0 0 1 14.5 5h-13A1.5 1.5 0 0 1 0 3.5v-2zM1.5 1a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-13z"/>
+              <path d="M2 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm10.823.323-.396-.396A.25.25 0 0 1 12.604 2h.792a.25.25 0 0 1 .177.427l-.396.396a.25.25 0 0 1-.354 0zM0 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8zm1 3v2a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2H1zm14-1V8a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2h14zM2 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+
+              Menu Principal</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-light" href="/funcionarios">Funcionários</a>
+            <a class="nav-link text-light" href="{{ route('user.index') }}">Funcionários</a>
           </li>
 
           <li class="nav-item">
@@ -36,7 +44,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-light" href="/produtos">Produtos</a>
+            <a class="nav-link text-light" href="{{ route('product.index') }}">Produtos</a>
           </li>
 
           <li class="nav-item">
@@ -53,22 +61,12 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                {{-- <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                     document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a> --}}
 
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                    <b-button type="submit" class="btn-link">{{ __('Logout') }}</b-button>
-                </form> --}}
-            </div>
+                  document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+                </a>
+             </div>
         </li>
 
         </ul>

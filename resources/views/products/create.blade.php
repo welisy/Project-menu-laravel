@@ -52,16 +52,20 @@
         <input type="text" class="form-control" name="name">
 
       <label class="form-label"> <span> Descrição </span></label>
-        <input type="text" class="form-control" name="decription">
+        <textarea type="text" class="form-control" name="decription"> </textarea>
 
       <label class="form-label"><span> Preço </span></label>
-      <input type="text" class="form-control" onkeypress="$(this).mask('R$ 999.990,00')">
+      <input type="number" step="0.01" id="price" class="form-control" name="price">
+
+      <label class="form-label"><span> Disponibilidade </span></label>
+        <select class="form-select" name="is_available">
+        <option value="available">Disponível</option>
+        <option value="unavailable">Indisponível</option>
+        
     </div>
   </div>
-  <div class="">
-    <button class="saveBtn" type="submit">Salvar</button>
-  </div>
-</form>
+  <button type="submit">Salvar</button>
+  </form>
 
 </div>
 
