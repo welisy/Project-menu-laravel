@@ -2,8 +2,6 @@
 <html lang="en" dir="ltr">
 
   <head>
-    <link rel="stylesheet" href="style.css">
-    <script src="arquivo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,10 +60,12 @@
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-                  {{ __('Logout') }}
-                </a>
+              <form action="{{ route('logout')}}" method='post'>
+                @csrf
+                <button class="dropdown-item" type="submit"> Logout
+                </button>
+
+              </form>
              </div>
         </li>
 

@@ -49,22 +49,38 @@
   <div class="d-flex flex-row gap-2">
     <div id="formu" class="w-100 mb-3">
       <label class="form-label"> <span> Nome </span></label>
-        <input type="text" class="form-control" name="name">
+        <input type="text" class="form-control" name="name" value="{{old('name')}}">
+        @error('name')
+        <div class="text-danger">
+          {{ $message }}
+        </div> 
+        @enderror
 
       <label class="form-label"> <span> Descrição </span></label>
-        <textarea type="text" class="form-control" name="decription"> </textarea>
+        <textarea type="text" class="form-control" name="description" value="{{old('description')}}"></textarea>
+        @error('description')
+        <div class="text-danger">
+          {{ $message }}
+        </div> 
+        @enderror
 
       <label class="form-label"><span> Preço </span></label>
-      <input type="number" step="0.01" id="price" class="form-control" name="price">
+      <input type="number" step="0.01" id="price" class="form-control" name="price" value="{{old('price')}}">
+      @error('price')
+      <div class="text-danger">
+        {{ $message }}
+      </div> 
+      @enderror
 
       <label class="form-label"><span> Disponibilidade </span></label>
         <select class="form-select" name="is_available">
-        <option value="available">Disponível</option>
-        <option value="unavailable">Indisponível</option>
+          <option value="available">Disponível</option>
+          <option value="unavailable">Indisponível</option>
+        </select>
         
+      </div>
     </div>
-  </div>
-  <button type="submit">Salvar</button>
+    <button class="btn btn-outline-success" type="submit" >Salvar</button>
   </form>
 
 </div>

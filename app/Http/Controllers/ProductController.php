@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -15,8 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $establishment_id = \Auth::user()->establishemnt_id;
-        $products = Product::where('establishment_id', $establishment_id) ->get();
+        $establishment_id = \Auth::user()->establishment_id;
+        $products = Product::where('establishment_id', $establishment_id)->get();
 
         return view('products.index', ['products'=> $products]);
     }
@@ -37,9 +38,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $data['price_cents'] = (int) ($data['price'] * 100);
         $data['establishment_id'] = \Auth::user()->establishment_id;
@@ -82,9 +83,11 @@ class ProductController extends Controller
     {
         $data = $request->all();
 
+        $data['price_cents'] = (int) ($data['price'] * 100);
+
         $product->update($data);
 
-        redirect()->route('product.index');
+        return redirect()->route('product.show', $product->id);
     }
 
     /**
@@ -93,8 +96,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->route('product.index');
+
     }
 }
