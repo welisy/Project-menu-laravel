@@ -27,7 +27,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Product $product)
+    public function create()
     {
         return view('products.create');
     }
@@ -41,6 +41,16 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $data = $request->validated();
+
+        if ($request->hasfile('image')) {
+            $imageFile = $request->file('image');
+        }
+
+        $image_path = $imageFile->storeAs(
+            "images/products/",
+            'image.jpg',
+            'public',
+        );
 
         $data['price_cents'] = (int) ($data['price'] * 100);
         $data['establishment_id'] = \Auth::user()->establishment_id;
@@ -79,9 +89,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $data['price_cents'] = (int) ($data['price'] * 100);
 

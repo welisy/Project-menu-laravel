@@ -44,7 +44,7 @@
     <h4>Adicionar Produtos</h4>
   </div>
 
-  <form method="POST" action="{{route('product.store')}}">
+  <form method="POST" action="{{route('product.store')}}" enctype="multipart/form-data">
   @csrf
   <div class="d-flex flex-row gap-2">
     <div id="formu" class="w-100 mb-3">
@@ -56,6 +56,7 @@
         </div> 
         @enderror
 
+        <br>
       <label class="form-label"> <span> Descrição </span></label>
         <textarea type="text" class="form-control" name="description" value="{{old('description')}}"></textarea>
         @error('description')
@@ -64,6 +65,7 @@
         </div> 
         @enderror
 
+        <br>
       <label class="form-label"><span> Preço </span></label>
       <input type="number" step="0.01" id="price" class="form-control" name="price" value="{{old('price')}}">
       @error('price')
@@ -72,15 +74,33 @@
       </div> 
       @enderror
 
+      <br>
       <label class="form-label"><span> Disponibilidade </span></label>
         <select class="form-select" name="is_available">
           <option value="available">Disponível</option>
           <option value="unavailable">Indisponível</option>
         </select>
         
+        <br>
+        <label for="image" class="form-label">Imagens</label>
+        <input type="file" name="image" id="file" class="form-control" accept="image/jpeg">
+        @error('image')
+        <div class="text-danger">
+          {{ $message }}
+        </div>
+        @enderror
+        
       </div>
     </div>
-    <button class="btn btn-outline-success" type="submit" >Salvar</button>
+    <div>
+      <button class="btn btn-outline-success" type="submit" >Salvar</button>
+    </div>
+    <div class="d-flex">
+      <a href="{{route('product.index')}}" class="btn btn-outline-success" >Voltar</a>
+    </div>
+
+    </div>
+
   </form>
 
 </div>

@@ -4,6 +4,11 @@
 
 <br><br>
 <div class="container">
+  <div>
+    <h1 class="text-center text-light" >Vizualizar Produtos</h2>
+  </div>
+<br><br>
+
   <ul class="list-group list-group-flush">  
     <li class="list-group-item">{{$product->name}}</li>   
     <li class="list-group-item">{{$product->description}}</li>   

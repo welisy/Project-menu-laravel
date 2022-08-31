@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->unsignedBigInteger('price_cents')->nullable();
-            $table->boolean('is_avaliable')->nullable();
+            $table->boolean('is_available')->nullable();
             $table->foreignId('establishment_id')
                 ->constrained('establishments')
                 ->cascadeOnDelete();

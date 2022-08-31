@@ -35,6 +35,7 @@
 
           <li class="nav-item">
             <a class="nav-link text-light" href="{{ route('user.index') }}">Funcionários</a>
+          
           </li>
 
           <li class="nav-item">

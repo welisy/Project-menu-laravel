@@ -45,20 +45,36 @@
     <h4>Editar Produtos</h4>
   </div>
 
-  <form method="POST" action="{{route('product.edit', $product->id)}}">
-  @csrf
+  <form method="POST" action="{{route('product.update', $product->id)}}" enctype="multipart/form-data">
+  @method('PUT')
+    @csrf
     <div class="d-flex flex-row gap-2">
       <div id="formu" class="w-100 mb-3">
         <label class="form-label"> <span> Nome </span></label>
-          <input type="text" class="form-control" name="name" value="{{old('name',$product->name)}}">
+          <input type="text" class="form-control" name="name" value="{{old('name', $product->name)}}">
+        @error('name')
+        <div class="text-danger">
+          <strong>{{ $message }}</strong>
+        </div>
+        @enderror
 
         <br>  
         <label class="form-label"> <span> Descrição </span></label>
-          <input type="text" class="form-control" name="decription" value="{{old('description'$product->description)}}">
+          <input type="text" class="form-control" name="description" value="{{old('description', $product->description)}}">
+          @error('description')
+          <div class="text-danger">
+            <strong>{{ $message }}</strong>
+          </div>
+          @enderror
 
         <br>
         <label class="form-label"><span> Preço </span></label>
-        <input type="text" class="form-control" value="R${{old('price_cents', $product->price_cents/100)}}">
+        <input type="number" name="price" class="form-control" value="{{old('price', $product->price_cents/100)}}">
+        @error('price')
+        <div class="text-danger">
+          <strong>{{ $message }}</strong>
+        </div>
+        @enderror
 
         <br>
         <label class="form-label"><span> Disponibilidade </span></label>
@@ -67,10 +83,18 @@
           <option value="0" @if (!$product->is_available) select @endif>Indisponível</option>
         </select>
 
+        <label for="image" class="form-label">Imagens</label>
+        <input type="file" name="image" id="file" class="form-control" accept="image/jpeg">
+        @error('image')
+        <div class="text-danger">
+          {{ $message }}
+        </div>
+        @enderror
+
       </div>
     </div>
-    <div class="">
-      <a href="{{route('product.update', $product->id)}}" class="Btn btn-outline-success" >Salvar</a>
+    <div>
+      <button class="btn btn-outline-success" type="submit" >Salvar</button>
     </div>
     <div class="d-flex">
       <a href="{{route('product.show', $product->id)}}" class="btn btn-outline-success" >Voltar</a>
