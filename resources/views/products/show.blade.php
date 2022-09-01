@@ -14,6 +14,7 @@
     <li class="list-group-item">{{$product->description}}</li>   
     <li class="list-group-item">R${{$product->price_cents/100}}</li>   
     <li class="list-group-item">@if($product->is_available) Disponível @else Indisponível @endif </li> 
+    <li class="list-group-item">{{$product->image_path}}</li>
   </ul>
   
   <br><br>

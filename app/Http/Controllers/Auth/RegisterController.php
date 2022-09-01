@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Establishment;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -64,10 +65,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $establishment = Establishment::create([
+            'company_name' => $data['company_name'],
+            'tranding_name' => $data['tranding_name'],
+            'cnpj' => $data['cnpj'],    
+            'phone' => $data['phone'],
+            'address' => $data['address'],
+        ]);
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'establishment_id' => $establishment->id
         ]);
     }
 }

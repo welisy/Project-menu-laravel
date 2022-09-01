@@ -42,24 +42,26 @@ class ProductController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasfile('image')) {
-            $imageFile = $request->file('image');
-        }
-
-        $image_path = $imageFile->storeAs(
-            "images/products/",
-            'image.jpg',
-            'public',
-        );
-
         $data['price_cents'] = (int) ($data['price'] * 100);
+    
         $data['establishment_id'] = \Auth::user()->establishment_id;
         
-        Product::create($data);
+        $product = Product::create($data);
+
+        if ($request->hasfile('image')) {
+            $imageFile = $request->file('image');
+
+            $image_path = $imageFile->storeAs(
+                "imgs/products/",
+                'image.jpg',
+                'public',
+            );
+        
+        $product->update(['image_path' => $image_path]);
+        }
 
         return redirect()->route('product.index');
-    }
-
+    }   
     /**
      * Display the specified resource.
      *

@@ -63,6 +63,7 @@
   <th>Descrição</th>
   <th>Preço </th>
   <th>Disponibilidade</th>
+  
   </tr>
   </thead>
   <tbody>
@@ -71,6 +72,7 @@
   <td>lalala</td>
   <td>R$ 12,00</td>
   <td>Disponível</td>
+  <td><img src="/storage/imgs/menus/ovo.jpeg" alt=""></td>
   </tr>
   <tr>
   <td>Prato 2</td>

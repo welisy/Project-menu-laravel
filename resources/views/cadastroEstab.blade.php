@@ -20,7 +20,7 @@
 
   <div class="container bg-dark text-white">
     <br><br>
-<h1>Cadastro de Usuarios</h1>
+<h1>Cadastro de Estabelecimento</h1>
 
     <form class="row g-3" action="" method="POST">
       <div class="col-md-6">
