@@ -53,7 +53,15 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
+            'phone' => ['required', 'string', 'min:10'],
+            'cpf' => ['required', 'string', 'min:11'],
+            'cnpj' => ['required', 'string', 'min:14'],
+            'companyName' => ['required', 'string'],
+            'tradingName' => ['required', 'string'],
+            'addressUser' => ['required', 'string'],
+            'addressCompany' => ['required', 'string'],
+            // 'type' => ['required', 'in:employee, manager'],
         ]);
     }
 
@@ -66,18 +74,23 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $establishment = Establishment::create([
-            'company_name' => $data['company_name'],
-            'tranding_name' => $data['tranding_name'],
-            'cnpj' => $data['cnpj'],    
+            'company_name' => $data['companyName'],
+            'trading_name' => $data['tradingName'],
+            'cnpj' => $data['cnpj'],   
+            'email' => $data['email'],
             'phone' => $data['phone'],
-            'address' => $data['address'],
+            'address' => $data['addressCompany'],
         ]);
 
         return User::create([
             'name' => $data['name'],
+            'cpf' => $data['cpf'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'establishment_id' => $establishment->id
+            'password' => \Hash::make($data['password']),
+            'establishment_id' => $establishment->id,
+            'phone' => $data['phone'],
+            'type' => $data['type'],
+            'address' => $data['addressUser'],
         ]);
     }
 }
