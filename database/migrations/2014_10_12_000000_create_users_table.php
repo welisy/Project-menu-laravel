@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('cpf')->nullable();
             $table->string('phone')->nullable();
             $table->string('type')->default('employee');
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }

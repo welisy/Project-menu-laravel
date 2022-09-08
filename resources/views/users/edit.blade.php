@@ -98,16 +98,21 @@
         <label class="form-label"><span> Tipo </span></label>
         <select class="form-select" name="type" aria-label="Disponibilidade">
           <option value="1" @if ($user->is_available) select @endif>Funcionario</option>
-          <option value="0" @if (!$user->is_available) select @endif>Geerente</option>
+          <option value="0" @if (!$user->is_available) select @endif>Gerente</option>
+          @error('type')
+        <div class="text-danger">
+          {{ $message }}
+        </div>
+        @enderror 
         </select>
-<!-- 
+
         <label for="image" class="form-label">Imagens</label>
         <input type="file" name="image" id="file" class="form-control" accept="image/jpeg">
         @error('image')
         <div class="text-danger">
           {{ $message }}
         </div>
-        @enderror -->
+        @enderror 
 
       </div>
     </div>

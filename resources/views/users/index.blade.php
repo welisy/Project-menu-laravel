@@ -35,7 +35,7 @@
             <td>{{$user->email}}</td>
             <td>{{$user->phone}}</td>
             <td>{{$user->type == 'manager'?'Gerente':'Funcionario'}}</td>
-            <td>{{$user-> address }}</td>
+            <td>{{$user->address}}</td>
             
            
 
