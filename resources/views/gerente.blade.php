@@ -1,42 +1,30 @@
 @extends('layout')
   <title>Gerente</title>
+<style>
+  hr {
+    color: #00a491;
+  }
 
+  h1:hover {
+    transform: scale(0.9);
+    transition: all 0.5s;
+    filter: drop-shadow(10px 9px 5px #000);
+  }
+</style>
 @section('body')
-<div class="container-fluid">
+<div class="container-fluid text-light">
+  <div class="mt-5">
+    <h1> Cardápios </h1>
+    <hr>
+    <h1> Funcionarios </h1>
+    <hr>
+    <h1> Produtos </h1>
+    <hr>
+    <h1> Pedidos </h1>
+    <hr>
+    <h1> Dados da Empresa </h1>
+    <hr>
 
-  <table class="table">
-    <thead class="table-li">
-      ...
-    </thead>
-    <tbody>
-
-
-      <h1> Cardápios </h1>
-      <hr style="color:white">
-    </tbody>
-  </table>
-
-  <div class="d-flex justify-content-around" >
-
-    <div class="card ms-5" style="width: 19rem;">
-      <img src="" class="card-img-top" alt="...">
-      <div class="card-body">
-      <h5 class="card-title text-black">Cardápio Principal</h5>
-      <p class="card-text text-black">Cardápio Criado em 12/05/22 </p>
-      <a href="editcardapio.html" class="btn btn-dark">Editar cardápio</a>
-    </div>
-  </div>
-
-  <br><br>
-
-  <div class="card" style="width: 19rem;">
-  <img src="/imgs/imgnamorados.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title text-black">Cardápio Dia dos Namorados</h5>
-    <p class="card-text text-black">Cardápio Criado em 14/05/22 </p>
-    <a href="Namoradoscardapio.html" class="btn btn-dark">Editar cardápio</a>
-  </div>
-  </div>
   </div>
 </div>
 @endsection

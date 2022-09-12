@@ -11,12 +11,6 @@ Route::get('/teste', function(){
     return view('teste');
 });
 
-Route::get('/wesley', 'App\Http\Controllers\WesleyController@wesley');
-
-Route::get('/cardapios', 'App\Http\Controllers\CardapioController@cardapios');
-
-Route::get('/cadastro', 'App\Http\Controllers\CadastroController@cadastro');
-
 Route::get('/dadosempresa', 'App\Http\Controllers\DadosController@dadosempresa');
 
 Route::get('/editcardapio', 'App\Http\Controllers\EditCardapioController@editcardapio');
@@ -24,8 +18,6 @@ Route::get('/editcardapio', 'App\Http\Controllers\EditCardapioController@editcar
 Route::get('/funcionarios', 'App\Http\Controllers\FuncionariosController@funcionarios');
 
 Route::get('/gerente', 'App\Http\Controllers\GerenteController@gerente');
-
-Route::get('/login', 'App\Http\Controllers\LoginController@login');
 
 Route::get('/namoradoscardapio', 'App\Http\Controllers\NamoradoscardapioController@namoradoscardapio');
 
@@ -43,4 +35,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('product', App\Http\Controllers\ProductController::class);
+});
+
+Route::middleware('auth')->group(function () {
+    Route::resource('menu', App\Http\Controllers\MenuController::class);
 });

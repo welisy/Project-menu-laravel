@@ -39,7 +39,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-light" href="/cardapios">Cardápios</a>
+            <a class="nav-link text-light" href="{{ route('menu.index') }}">Cardápios</a>
           </li>
 
           <li class="nav-item">
