@@ -34,7 +34,6 @@
     font-size: 20px 
   }
 
- 
 </style>
 
 @section('body')

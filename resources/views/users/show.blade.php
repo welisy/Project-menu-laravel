@@ -1,30 +1,51 @@
 @extends('layout')
 
+<title>Vizualizar Usuario</title>
+
 @section('body')
 
 <br><br>
 <div class="container">
   <div>
-    <h1 class="text-center text-light" >Vizualizar Usuarios</h2>
+    <h1 class=" text-light" >Vizualizar Usuario</h2>
   </div>
 <br><br>
 
-  <ul class="list-group list-group-flush">  
-    <li class="list-group-item">{{$user->name}}</li>   
-    <li class="list-group-item">{{$user->cpf}}</li>   
-    <li class="list-group-item">{{$user->phone}}</li>   
-    <li class="list-group-item">{{$user->email}}</li>
-    <li class="list-group-item">{{$user->address}}</li>
-    <li class="list-group-item">@if($user->type) Gerente @else Funcionario @endif </li> 
-  </ul>
+<div class="table-responsive ">
+      <table class="table text-light">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Email </th>
+            <th>Telefone</th> 
+            <th>Tipo</th>   
+            <th>Endereço</th>  
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr>
+            <td>{{$user->name}}</td>
+            <td>{{$user->cpf}}</td>
+            <td>{{$user->email}}</td>
+            <td>{{$user->phone}}</td>
+            <td>@if($user->type) Gerente @else Funcionario @endif</td>
+            <td>{{$user->address}}</td>
+          </tr>
+      
+        </tbody>
+    </table>
+  </div>
   
   <br><br>
-  
-  <div class="d-flex">
-    <a href="{{route('user.edit', $user->id)}}" class="btn btn-outline-success" >Editar</a>
-  </div>
-  <div class="d-flex">
-    <a href="{{route('user.index', $user->id)}}" class="btn btn-outline-success" >Voltar</a>
+  <div class="d-flex justify-content-center">
+    <div class="d-flex">
+      <a href="{{route('product.edit', $product->id)}}" class="btn btn-outline-success" >Editar</a>
+    </div>
+    <div class="d-flex">
+      <a href="{{route('product.index', $product->id)}}" class="btn btn-outline-success" >Voltar</a>
+    </div>
   </div>
 </div>
 

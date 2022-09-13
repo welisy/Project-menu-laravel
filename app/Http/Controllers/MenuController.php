@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
+use App\Models\Product;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Http\Request;
+use App\Http\Requests\MenuRequest;
+
 
 class MenuController extends Controller
 {
@@ -13,7 +18,10 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+			$establishment_id = \Auth::user()->establishment_id;
+			$menus = Menu::where('establishment_id', $establishment_id)->get();
+
+			return view('menus.index', ['menus'=> $menus]);
     }
 
     /**
@@ -23,7 +31,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+			return view('menus.create');
     }
 
     /**
@@ -32,10 +40,29 @@ class MenuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+    public function store(MenuRequest $request)
     {
-        //
-    }
+			$data = $request->validated();
+	
+			$data['establishment_id'] = \Auth::user()->establishment_id;
+			
+			$menu = Menu::create($data);
+
+			if ($request->hasfile('image')) {
+				$imageFile = $request->file('image');
+
+				$image_path = $imageFile->storeAs(
+					"imgs/menus/",
+					'image.jpg',
+					'public',
+				);
+			
+			$menu->update(['image_path' => $image_path]);
+			}
+
+			return redirect()->route('menu.index');
+    }   
 
     /**
      * Display the specified resource.
@@ -43,9 +70,15 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+
+
+    public function show(Menu $menu)
     {
-        //
+			$products = Product::where('establishment_id',\Auth::user()->establishment_id)->get();
+
+			return view('menus.show', ['products'=>$products]);
+
     }
 
     /**
@@ -54,10 +87,11 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+
+    public function edit(Menu $menu)
     {
-        //
-    }
+			return view('menus.edit', ['menu'=> $menu]);
+
 
     /**
      * Update the specified resource in storage.
@@ -66,9 +100,18 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    }
+
+    public function update(MenuRequest $request, Menu $menu)
     {
-        //
+			$data = $request->validated();
+
+			$menu->update($data);
+
+			return redirect()->route('menu.show', $menu->id);
+
+
+
     }
 
     /**
@@ -77,8 +120,14 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+
+
+
+    public function destroy(Menu $menu)
     {
-        //
+			$menu->delete();
+
+			return redirect()->route('menu.index');
     }
 }
