@@ -16,10 +16,10 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $establishment_id = \Auth::user()->establishment_id;
-        $menus = Menu::where('establishment_id', $establishment_id)->get();
+			$establishment_id = \Auth::user()->establishment_id;
+			$menus = Menu::where('establishment_id', $establishment_id)->get();
 
-        return view('menus.index', ['menus'=> $menus]);
+			return view('menus.index', ['menus'=> $menus]);
     }
 
     /**
@@ -29,7 +29,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('menus.create');
+			return view('menus.create');
     }
 
     /**
@@ -40,25 +40,25 @@ class MenuController extends Controller
      */
     public function store(MenuRequest $request)
     {
-        $data = $request->validated();
-    
-        $data['establishment_id'] = \Auth::user()->establishment_id;
-        
-        $menu = Menu::create($data);
+			$data = $request->validated();
+	
+			$data['establishment_id'] = \Auth::user()->establishment_id;
+			
+			$menu = Menu::create($data);
 
-        if ($request->hasfile('image')) {
-            $imageFile = $request->file('image');
+			if ($request->hasfile('image')) {
+				$imageFile = $request->file('image');
 
-            $image_path = $imageFile->storeAs(
-                "imgs/menus/",
-                'image.jpg',
-                'public',
-            );
-        
-        $menu->update(['image_path' => $image_path]);
-        }
+				$image_path = $imageFile->storeAs(
+					"imgs/menus/",
+					'image.jpg',
+					'public',
+				);
+			
+			$menu->update(['image_path' => $image_path]);
+			}
 
-        return redirect()->route('menu.index');
+			return redirect()->route('menu.index');
     }   
     /**
      * Display the specified resource.
@@ -68,7 +68,9 @@ class MenuController extends Controller
      */
     public function show(Menu $menu)
     {
-        return view('menus.show', ['menu'=>$menu]);
+			$products = Product::where('establishment_id',\Auth::user()-> $establishment_id)->get();
+
+			return view('menus.show', ['products'=>$products]);
     }
 
     /**
@@ -79,7 +81,7 @@ class MenuController extends Controller
      */
     public function edit(Menu $menu)
     {
-        return view('menus.edit', ['menu'=> $menu]);
+			return view('menus.edit', ['menu'=> $menu]);
     }
 
     /**
@@ -91,11 +93,11 @@ class MenuController extends Controller
      */
     public function update(MenuRequest $request, Menu $menu)
     {
-        $data = $request->validated();
+			$data = $request->validated();
 
-        $menu->update($data);
+			$menu->update($data);
 
-        return redirect()->route('menu.show', $menu->id);
+			return redirect()->route('menu.show', $menu->id);
     }
 
     /**
@@ -106,9 +108,9 @@ class MenuController extends Controller
      */
     public function destroy(Menu $menu)
     {
-        $menu->delete();
+			$menu->delete();
 
-        return redirect()->route('menu.index');
+			return redirect()->route('menu.index');
 
     }
 }

@@ -65,7 +65,7 @@
           @enderror
 
           <!-- MENU PRODUCTS -->
-          <br>
+        <!--   <br>
         <label class="form-label"><span> Produtos </span></label>
         <select class="form-select" name="is_available">
           <option value="1">Disponível</option>
