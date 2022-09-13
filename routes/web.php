@@ -15,13 +15,9 @@ Route::get('/dadosempresa', 'App\Http\Controllers\DadosController@dadosempresa')
 
 Route::get('/editcardapio', 'App\Http\Controllers\EditCardapioController@editcardapio');
 
-Route::get('/funcionarios', 'App\Http\Controllers\FuncionariosController@funcionarios');
-
 Route::get('/gerente', 'App\Http\Controllers\GerenteController@gerente');
 
 Route::get('/namoradoscardapio', 'App\Http\Controllers\NamoradoscardapioController@namoradoscardapio');
-
-Route::get('/pedidos', 'App\Http\Controllers\PedidosController@pedidos');
 
 Route::get('/principalcardapio', 'App\Http\Controllers\PrincipalcardapioController@principalcardapio');
 
@@ -39,4 +35,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('menu', App\Http\Controllers\MenuController::class);
+});
+
+Route::middleware('auth')->group(function () {
+    Route::resource('order', App\Http\Controllers\OrderController::class);
 });
