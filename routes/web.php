@@ -40,3 +40,6 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::resource('order', App\Http\Controllers\OrderController::class);
 });
+
+Route::resource('menu.product', App\Http\Controllers\MenuController::class)
+    ->only(['store', 'destroy']);

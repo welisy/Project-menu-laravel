@@ -33,7 +33,7 @@
               <td>{{$product->description}}</td>
               <td>R${{$product->price_cents}}</td>
               <td>@if($product->is_available) Disponível @else Indisponível @endif </td>
-              <td><img src="{{$product->image_path}}" alt=""></td>
+              <td><img src="{{asset('/storage/'.$product->image_path)}}" width="60" height="50" alt=""></td>
             
             <td>
               {{-- Vizualizar --}}

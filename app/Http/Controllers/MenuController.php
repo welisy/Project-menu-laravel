@@ -75,10 +75,19 @@ class MenuController extends Controller
 
     public function show(Menu $menu)
     {
-			$products = Product::where('establishment_id',\Auth::user()->establishment_id)->get();
+			$addableProducts = Product::where('establishment_id', $menu->establishment_id)
+            ->whereDoesntHave('menus', function($query) use ($menu) {
+                $query->where('menus.id', $menu->id);
+            })    
+            ->get();
 
-			return view('menus.show', ['products'=>$products]);
+			return view('menus.show', ['menu' => $menu, 'addableProducts' => $addableProducts]);
 
+    }
+
+    public function showPublic()
+    {
+        return view('menus.showPublic');
     }
 
     /**
