@@ -13,6 +13,7 @@ class Menu extends Model
         'name',
         'description',
         'is_active',
+        'image_path',
         'establishment_id',
     ];
 

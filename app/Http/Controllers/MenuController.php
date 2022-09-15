@@ -53,12 +53,13 @@ class MenuController extends Controller
 				$imageFile = $request->file('image');
 
 				$image_path = $imageFile->storeAs(
-					"imgs/menus/",
+					"imgs/menus",
 					'image.jpg',
 					'public',
 				);
-			
-			$menu->update(['image_path' => $image_path]);
+                
+                // dd($image_path);
+                $menu->update(['image_path' => $image_path]);
 			}
 
 			return redirect()->route('menu.index');
@@ -118,8 +119,6 @@ class MenuController extends Controller
 			$menu->update($data);
 
 			return redirect()->route('menu.show', $menu->id);
-
-
 
     }
 

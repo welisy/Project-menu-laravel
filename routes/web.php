@@ -13,13 +13,13 @@ Route::get('/teste', function(){
 
 Route::get('/dadosempresa', 'App\Http\Controllers\DadosController@dadosempresa');
 
-Route::get('/editcardapio', 'App\Http\Controllers\EditCardapioController@editcardapio');
-
 Route::get('/gerente', 'App\Http\Controllers\GerenteController@gerente');
 
-Route::get('/namoradoscardapio', 'App\Http\Controllers\NamoradoscardapioController@namoradoscardapio');
+// Route::get('/editcardapio', 'App\Http\Controllers\EditCardapioController@editcardapio');
 
-Route::get('/principalcardapio', 'App\Http\Controllers\PrincipalcardapioController@principalcardapio');
+// Route::get('/namoradoscardapio', 'App\Http\Controllers\NamoradoscardapioController@namoradoscardapio');
+
+// Route::get('/principalcardapio', 'App\Http\Controllers\PrincipalcardapioController@principalcardapio');
 
 Auth::routes();
 
@@ -43,3 +43,5 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('menu.product', App\Http\Controllers\MenuController::class)
     ->only(['store', 'destroy']);
+
+Route::get('/cardapio{menu}', 'App\Http\Controllers\MenuController@showPublic')->name('menu.public.show');

@@ -14,6 +14,7 @@ class Product extends Model
         'description',
         'price_cents',
         'is_available',
+        'image_path',
         'establishment_id',
     ];
 

@@ -67,7 +67,7 @@
 
           <br>
           <label class="form-label"><span> Disponibilidade </span></label>
-          <select class="form-select" name="id_active">
+          <select class="form-select" name="is_active" >
             <option value="1">Disponível</option>
             <option value="0">Indisponível</option>
               @error('is_active')

@@ -49,15 +49,16 @@ class ProductController extends Controller
         $product = Product::create($data);
 
         if($request->hasfile('image')) {
-					$imageFile = $request->file('image');
+            $imageFile = $request->file('image');
 
-					$product->update([ 
-						'image_path' => $imageFile->storeAs(
-								"imgs/products/$product->id",
-								'image.jpg',
-								'public',
-						)
-					]);
+            
+                $image_path = $imageFile->storeAs(
+                    "imgs/products/$product->id",
+                    'image.jpg',
+                    'public',
+                );
+
+                $product->update(['image_path' => $image_path]);
         } 
 
         return redirect()->route('product.index');
