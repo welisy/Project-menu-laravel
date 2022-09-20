@@ -78,7 +78,7 @@ class RegisterController extends Controller
             'trading_name' => $data['tradingName'],
             'cnpj' => $data['cnpj'],   
             'email' => $data['email'],
-            'phone' => $data['phone'],
+            'phone' => $data['companyPhone'],
             'address' => $data['addressCompany'],
         ]);
 

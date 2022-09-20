@@ -35,11 +35,11 @@
   .hover-underline-animation:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
-    text-decoration: none;
+    text-decoration: none!important;
 }
 
   h1 a {
-    text-decoration: none;
+    text-decoration: none!important;
     color: #fff;
   }
 

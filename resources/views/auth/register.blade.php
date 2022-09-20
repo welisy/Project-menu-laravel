@@ -73,7 +73,7 @@
 
         <div class="col-md-6">
           <label for="inputPhone" class="form-label">Telefone</label>
-          <input type="text" class="form-control" name="phone" id="inputPhone">
+          <input type="text" class="form-control" name="companyPhone" id="inputPhone">
           @error('phone')
             <div class="text-danger">
               {{ $message }}

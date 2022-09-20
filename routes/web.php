@@ -4,11 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 //HELPER
 Route::get('/', function () {
-    return view('welcome');    
-});
-
-Route::get('/teste', function(){
-    return view('teste');
+    return redirect()->route('login');   
 });
 
 Route::get('/dadosempresa', 'App\Http\Controllers\DadosController@dadosempresa');
