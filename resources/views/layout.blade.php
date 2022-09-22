@@ -79,7 +79,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-light" id="hover-underline-animation" href="/dadosempresa">
+            <a class="nav-link text-light" id="hover-underline-animation" href="/establishment">
             <i class="bi bi-info-circle"></i>
               Dados da Empresa</a>
           </li>

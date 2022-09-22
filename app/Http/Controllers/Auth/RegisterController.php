@@ -61,7 +61,7 @@ class RegisterController extends Controller
             'tradingName' => ['required', 'string'],
             'addressUser' => ['required', 'string'],
             'addressCompany' => ['required', 'string'],
-            // 'type' => ['required', 'in:employee, manager'],
+            'type' => ['required'],
         ]);
     }
 
