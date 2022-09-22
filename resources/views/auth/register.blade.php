@@ -91,48 +91,6 @@
           @enderror
         </div>
 
-        <!-- <div class="col-md-6">
-          <label for="inputCidade" class="form-label">Cidade</label>
-          <input type="text" class="form-control" id="inputCidade" name="city">
-          @error('city')
-            <div class="text-danger">
-              {{ $message }}
-            </div> 
-          @enderror
-        </div>
-
-        <div class="col-md-4">
-          <label for="inputEstado" class="form-label">Estado</label>
-          <select id="inputEstado" class="form-select">
-            <option selected>Escolha...</option>
-            <option>São Paulo</option>
-            <option>Paraná</option>
-            <option>Rio de Janeiro</option>
-            <option>Santa Catarina</option>
-          </select>
-        </div> 
-        
-        <div class="col-md-2">
-            <label for="inputCEP" class="form-label">CEP</label>
-            <input type="text" class="form-control" id="inputCEP" name="cep" > 
-            @error('cep')
-            <div class="text-danger">
-              {{ $message }}
-            </div> 
-            @enderror
-        </div>
-
-        <div class="col-md-2">
-          <label for="inputNº" class="form-label">Nº</label>
-          <input type="number" class="form-control" id="inputNº" name="number">
-          @error('number')
-            <div class="text-danger">
-              {{ $message }}
-            </div> 
-          @enderror
-        </div> -->
-
-        </div>
 
         <br>
 
@@ -212,47 +170,6 @@
                 </div> 
                 @enderror
             </div>
-
-            <!-- <div class="col-md-6">
-              <label for="inputCidade" class="form-label">Cidade</label>
-              <input type="text" class="form-control" id="inputCidade" name="city">
-              @error('city')
-                <div class="text-danger">
-                  {{ $message }}
-                </div> 
-                @enderror
-            </div>
-
-            <div class="col-md-4">
-              <label for="inputEstado" class="form-label">Estado</label>
-              <select id="inputEstado" class="form-select">
-                <option selected>Escolha...</option>
-                <option>São Paulo</option>
-                <option>Paraná</option>
-                <option>Rio de Janeiro</option>
-                <option>Santa Catarina</option>
-              </select>
-            </div> 
-            
-            <div class="col-md-2">
-                <label for="inputCEP" class="form-label">CEP</label>
-                <input type="text" class="form-control" id="inputCEP" name="cep" > 
-                @error('cep')
-                <div class="text-danger">
-                  {{ $message }}
-                </div> 
-                @enderror
-            </div>
-
-            <div class="col-md-2">
-              <label for="inputNº" class="form-label">Nº</label>
-              <input type="number" class="form-control" id="inputNº" name="number">
-              @error('number')
-                <div class="text-danger">
-                  {{ $message }}
-                </div> 
-                @enderror
-            </div> -->
 
             <br>
             <div class="col-12">

@@ -49,18 +49,18 @@ class MenuController extends Controller
 			
 			$menu = Menu::create($data);
 
-			if ($request->hasfile('image')) {
-				$imageFile = $request->file('image');
-
-				$image_path = $imageFile->storeAs(
-					"imgs/menus",
-					'image.jpg',
-					'public',
-				);
+            if($request->hasfile('image')) {
+                $imageFile = $request->file('image');
+    
                 
-                // dd($image_path);
-                $menu->update(['image_path' => $image_path]);
-			}
+                    $image_path = $imageFile->storeAs(
+                        "imgs/products/$menu->id",
+                        'image.jpg',
+                        'public',
+                    );
+    
+                    $menu->update(['image_path' => $image_path]);
+            } 
 
 			return redirect()->route('menu.index');
     }   
