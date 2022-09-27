@@ -14,6 +14,26 @@ class LoginTest extends TestCase
      * @return void
      */
 
+    use RefreshDatabase;
+
+    protected function setU(): void {
+        parent::setUp();
+
+        $this->post('/register', [
+            'name' => 'wesleyD',
+            'email' => 'wesleyy@gmail.com',
+            'password' => '123456789',
+            'password_confirmation' => '123456789',
+            'address' => 'rua B. 6549',            
+            'companyName' => 'Rest Runs ltda',
+            'tradingName' => 'Rest Runs ',
+            'cnpj' => '11594112345812',
+            'phone' => '42998644851',
+        ]);
+
+        \Auth::logout();
+    }
+
     public function test_the_aplication_returns_login_view_when_login_route_is_accessed()
     {
         $response = $this->get('/login');
@@ -30,4 +50,13 @@ class LoginTest extends TestCase
         $response->assertInvalid(['email', 'password']);
     }
 
+    public function test_should_login_when_valid_data()
+    {
+        $response = $this->post('/login', [
+            'email' => 'wesleyy@gmail.com',
+            'password' => '123456789',
+        ]);
+
+        $response->assertAuthenticated();
+    }
 }

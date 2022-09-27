@@ -16,7 +16,8 @@
             <th>Produto (Título)</th>
             <th>Descrição</th>
             <th>Preço </th>
-            <th>Disponibilidade</th>  
+            <th>Disponibilidade</th>
+            <th>Imagem</th>
           </tr>
         </thead>
       
@@ -26,7 +27,7 @@
             <td>{{$product->description}}</td>
             <td>{{$product->price_cents/100}}</td>
             <td>@if($product->is_available) Disponível @else Indisponível @endif</td>
-            <td>{{$product->image_path}}</td>
+            <td><img src="{{asset('/storage/'.$product->image_path)}}" width=90" height="50" alt=""></td>
           </tr>
       
         </tbody>
