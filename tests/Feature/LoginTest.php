@@ -8,6 +8,27 @@ use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
+    use RefreshDatabase;
+
+    protected function setUp():void
+    {
+        parent::setUp();
+        
+        $this->post('/register', [
+            'name'=>'Welisy',
+            'email'=>'welisy@gmail.com',
+            'password'=>'123456789',
+            'password_confirmation'=>'123456789',
+            'company_name'=>'Empresa LTDA',
+            'trading_name'=>'Nome Fantasia',
+            'address'=>'Rua A',
+            'phone'=>'(42)998644852',
+            'cnpj'=>'1010101010001'
+        ]);
+        
+        \Auth::Logout();
+        
+    }
     /**
      * A basic feature test example.
      *
@@ -43,6 +64,7 @@ class LoginTest extends TestCase
         $response->assertSeeText('Login');
     }
 
+
     public function test_shouldnt_login_when_invalid_data()
     {
         $response = $this->post('/login');
@@ -50,6 +72,7 @@ class LoginTest extends TestCase
         $response->assertInvalid(['email', 'password']);
     }
 
+<<<<<<< HEAD
     public function test_should_login_when_valid_data()
     {
         $response = $this->post('/login', [
@@ -59,4 +82,18 @@ class LoginTest extends TestCase
 
         $response->assertAuthenticated();
     }
+=======
+
+    public function test_should_login_when_valid_data()
+    {
+        $response = $this->post('/login', [
+            'email' => 'welisy@gmail.com',
+            'password' => '123456789',
+        ]);
+
+        $this->assertAuthenticated();
+    }
+
+
+>>>>>>> 35c6a9dc99f93d2ea3b839ccc4d0ccd0b4a4b8b7
 }

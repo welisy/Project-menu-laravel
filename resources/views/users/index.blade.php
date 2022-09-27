@@ -37,7 +37,6 @@
             <td>{{$user->type == 'manager'?'Gerente':'Funcionario'}}</td>
             <td>{{$user->address}}</td>
             
-           
 
             <td>
               {{-- Vizualizar --}}

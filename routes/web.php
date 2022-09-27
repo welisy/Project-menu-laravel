@@ -37,6 +37,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('order', App\Http\Controllers\OrderController::class);
 });
 
+Route::middleware('auth')->group(function () {
+    Route::resource('establishment', App\Http\Controllers\EstablishmentController::class);
+});
+
 Route::resource('menu.product', App\Http\Controllers\MenuController::class)
     ->only(['store', 'destroy']);
 

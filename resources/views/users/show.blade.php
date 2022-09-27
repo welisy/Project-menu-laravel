@@ -41,10 +41,10 @@
   <br><br>
   <div class="d-flex justify-content-center">
     <div class="d-flex">
-      <a href="{{route('product.edit', $product->id)}}" class="btn btn-outline-success" >Editar</a>
+      <a href="{{route('user.edit', $user->id)}}" class="btn btn-outline-success" >Editar</a>
     </div>
     <div class="d-flex">
-      <a href="{{route('product.index', $product->id)}}" class="btn btn-outline-success" >Voltar</a>
+      <a href="{{route('user.index', $user->id)}}" class="btn btn-outline-success" >Voltar</a>
     </div>
   </div>
 </div>

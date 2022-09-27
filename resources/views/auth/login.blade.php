@@ -15,7 +15,7 @@
 
         <nav class="navbar navbar-expand-lg vh-10 vw-100 d-flex justify-content" style="background-color: #00a491">
           <div class="container-fluid">
-            <a class="navbar-brand text-light" href="Gerente.html"><h2>Meu Cardápio</h2></a>
+            <h2 class="text-light">Meu Cardápio</h2></>
           </div>
         </nav>
 <br>

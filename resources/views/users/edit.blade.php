@@ -106,13 +106,13 @@
         @enderror 
         </select>
 
-        <label for="image" class="form-label">Imagens</label>
+        <!-- <label for="image" class="form-label">Imagens</label>
         <input type="file" name="image" id="file" class="form-control" accept="image/jpeg">
         @error('image')
         <div class="text-danger">
           {{ $message }}
         </div>
-        @enderror 
+        @enderror  -->
 
       </div>
     </div>
