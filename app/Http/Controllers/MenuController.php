@@ -100,7 +100,13 @@ class MenuController extends Controller
 
     public function edit(Menu $menu)
     {
-			return view('menus.edit', ['menu'=> $menu]);
+            $addableProducts = Product::where('establishment_id', $menu->establishment_id)
+                // ->whereDoesntHave('menus', function($query) use ($menu) {
+                //     $query->where('menus.id', $menu->id);
+                // })
+                ->get(); 
+
+			return view('menus.edit', ['menu'=> $menu, 'addableProducts' => $addableProducts]);
 
 
     /**

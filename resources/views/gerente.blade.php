@@ -54,22 +54,26 @@
       </h1> 
       
       <hr>
-      <h1 class="hover-underline-animation"> Funcionarios 
+      <h1 class="hover-underline-animation"> 
+      <a href="{{ route('user.index') }}">Funcionarios</a> 
       <i class="bi bi-people"></i>
       </h1>
   
       <hr>
-      <h1 class="hover-underline-animation"> Produtos 
+      <h1 class="hover-underline-animation"> 
+      <a href="{{ route('product.index') }}">Produtos</a> 
         <i class="bi bi-shop"></i>
       </h1>
   
       <hr>
-      <h1 class="hover-underline-animation"> Pedidos 
+      <h1 class="hover-underline-animation">
+      <a href="#">Pedidos</a>  
         <i class="bi bi-basket"></i>
       </h1>
   
       <hr>
-      <h1 class="hover-underline-animation"> Dados da Empresa 
+      <h1 class="hover-underline-animation">
+      <a href="{{ route('establishment.index') }}">Dados da Empresa</a> 
         <i class="bi bi-info-circle"></i>
       </h1>
       <hr>

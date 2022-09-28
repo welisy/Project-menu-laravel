@@ -1,7 +1,7 @@
 @extends('layout')
 <title>Cardápios</title>
 @section('body')
-<div class="container mt-5">
+<div class="container">
 
     <!-- TABLE -->
   <div class="container">
@@ -18,7 +18,7 @@
               <th>Nome</th>
               <th>Descrição</th>
               <th>Disponibilidade</th>
-              <th>Imagem</th>
+              <!-- <th>Imagem</th> -->
               <th>QR Code</th>
               <th>Vizualizar</th>
               <th>Editar</th>
@@ -32,7 +32,7 @@
               <td>{{$menu->name}}</td>
               <td>{{$menu->description}}</td>
               <td>@if($menu->is_active) Disponível @else Indisponível @endif </td>
-              <td><img src="{{asset('/storage/'.$menu->image_path)}}" width=90" height="50" alt=""></td>
+              <!-- <td><img src="{{asset('/storage/'.$menu->image_path)}}" width=90" height="50" alt=""></td> -->
               <td><a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
                     <h2><i class="bi bi-qr-code-scan"></i></h2>
                   </a></td>

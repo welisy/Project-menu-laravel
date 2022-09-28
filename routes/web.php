@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('establishment', App\Http\Controllers\EstablishmentController::class);
 });
 
-Route::resource('menu.product', App\Http\Controllers\MenuController::class)
+Route::resource('menu.product', App\Http\Controllers\MenuProductController::class)
     ->only(['store', 'destroy']);
 
 Route::get('/cardapio{menu}', 'App\Http\Controllers\MenuController@showPublic')->name('menu.public.show');
