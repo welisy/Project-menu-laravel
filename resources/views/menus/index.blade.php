@@ -58,7 +58,7 @@
             
             <td>
               {{-- Vizualizar --}}
-              <a class="btn btn-outline-primary" href="{{route('menu.show', $menu->id)}}">
+              <a class="btn btn-outline-primary" href="{{route('menu.public.show', $menu->id)}}">
                 <i class="bi bi-eye"></i>
               </a>
             </td>

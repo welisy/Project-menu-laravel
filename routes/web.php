@@ -7,7 +7,7 @@ Route::get('/', function () {
     return redirect()->route('login');   
 });
 
-Route::get('/dadosempresa', 'App\Http\Controllers\DadosController@dadosempresa');
+// Route::get('/dadosempresa', 'App\Http\Controllers\DadosController@dadosempresa');
 
 Route::get('/gerente', 'App\Http\Controllers\GerenteController@gerente');
 
@@ -45,3 +45,4 @@ Route::resource('menu.product', App\Http\Controllers\MenuController::class)
     ->only(['store', 'destroy']);
 
 Route::get('/cardapio{menu}', 'App\Http\Controllers\MenuController@showPublic')->name('menu.public.show');
+

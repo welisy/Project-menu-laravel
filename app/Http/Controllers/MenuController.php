@@ -88,7 +88,7 @@ class MenuController extends Controller
 
     public function showPublic()
     {
-        return view('menus.showPublic');
+        return view('menus./public/showPublic');
     }
 
     /**

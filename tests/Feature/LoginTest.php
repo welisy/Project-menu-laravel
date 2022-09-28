@@ -10,6 +10,17 @@ class LoginTest extends TestCase
 {
     use RefreshDatabase;
 
+
+    public function test_should_login_when_valid_data()
+    {
+        $response = $this->post('/login', [
+            'email' => 'welisy@gmail.com',
+            'password' => '123456789',
+        ]);
+
+        $this->assertAuthenticated();
+    }
+
     protected function setUp():void
     {
         parent::setUp();
@@ -61,9 +72,7 @@ class LoginTest extends TestCase
 
         $response->assertStatus(200);
 
-        $response->assertSeeText('Login');
     }
-
 
     public function test_shouldnt_login_when_invalid_data()
     {
@@ -71,29 +80,4 @@ class LoginTest extends TestCase
 
         $response->assertInvalid(['email', 'password']);
     }
-
-<<<<<<< HEAD
-    public function test_should_login_when_valid_data()
-    {
-        $response = $this->post('/login', [
-            'email' => 'wesleyy@gmail.com',
-            'password' => '123456789',
-        ]);
-
-        $response->assertAuthenticated();
-    }
-=======
-
-    public function test_should_login_when_valid_data()
-    {
-        $response = $this->post('/login', [
-            'email' => 'welisy@gmail.com',
-            'password' => '123456789',
-        ]);
-
-        $this->assertAuthenticated();
-    }
-
-
->>>>>>> 35c6a9dc99f93d2ea3b839ccc4d0ccd0b4a4b8b7
 }
