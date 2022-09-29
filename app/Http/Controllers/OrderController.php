@@ -36,7 +36,7 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(OrderRequest $request)
+    public function store(Order $request)
     {
         $data = $request->validated();
     
@@ -44,17 +44,7 @@ class OrderController extends Controller
         
         $order = Order::create($data);
 
-        if ($request->hasfile('image')) {
-            $imageFile = $request->file('image');
-
-            $image_path = $imageFile->storeAs(
-                "imgs/orders/",
-                'image.jpg',
-                'public',
-            );
         
-        $order->update(['image_path' => $image_path]);
-        }
 
         return redirect()->route('order.index');
     }   
@@ -87,7 +77,7 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(OrderRequest $request, Order $order)
+    public function update(Order $request, Order $order)
     {
         $data = $request->validated();
 

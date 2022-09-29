@@ -17,15 +17,15 @@ class MenuProductController extends Controller
     {		
       $menu->products()->attach($request->get('product_id'));
 
-      return redirect()->route('menu.show', $menu->id); 
+      return redirect()->route('menu.edit', $menu->id); 
 
     }
 
   public function destroy(Menu $menu, Product $product)
     {
-      $menu->products()->detach('product_id');
+      $menu->products()->detach($product->id);
 
-      return redirect()->route('menu.show', $menu->id); 
+      return redirect()->route('menu.edit', $menu->id); 
 
     }
 }

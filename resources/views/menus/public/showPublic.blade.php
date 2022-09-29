@@ -1,33 +1,57 @@
 @extends('layout')
-
-<title>Meu Cardapio</title>
-
+  <title>Cardápio Principal</title>
 @section('body')
 
-<div class="container">
-  <h1>Cardapios</h1>
-  <br>
-  <div class="table-responsive ">
-        <table class="table text-light ">
+  <br><br>
 
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Descrição</th>
-              <th>Disponibilidade</th>
-              <th>Imagem</th>
-            </tr>
-          </thead>
-          <tbody>   
+  <div class="container">
+    <h2 class="text-light" >Cardápio Principal</h2>
 
-          @foreach ($menus as $menu)
-            <tr>
-              <td>{{$menu->name}}</td>
-              <td>{{$menu->description}}</td>
-              <td>@if($menu->is_active) Disponível @else Indisponível @endif </td>
-              <td><img src="{{asset('/storage/'.$menu->image_path)}}" width=90" height="50" alt=""></td>
-          @endforeach
+    <form action="{{route('menu.public.show', $menu->id)}}" method="POST">
+    @csrf
+      <div class="mb-3 d-flex flex-row gap-3">
+        <div>
+          <label for="selectproducts">Adicionar Produtos</label>
+          <select name="product" class="form-select"></select>
+            @foreach ($addableProducts as $product)
+              <option value="{{$product->id}}"> {{$product->name}}</option>
+            @endforeach  
+        </div>
+        <div class="d-flex align-items-end">
+          <button type="submit" class="btn btn-success rounded" title="Adicionar Produtos">
+            <i class="bi bi-clipboard-plus"></i>
+          </button>
+        </div>
       </div>
+    </form>
 
+    <div class="table-responsive ">
+      <table class="table text-light ">
+        <thead>
+          <tr>
+            <th>Produto (Título)</th>
+            <th>Descrição</th>
+            <th>Preço </th>
+            <th>Disponibilidade</th>  
+          </tr>
+        </thead>
+      @foreach ($menu->products as $product)
+        <tbody>
+          <tr>
+            <td>{{$product->name}}</td>
+            <td>{{$product->description}}</td>
+            <td>{{$product->price}}</td>
+            <td>{{$product->is_active}}</td>
+            <td><img src="{{$product->img}}" alt=""></td>
+          </tr>
+      @endforeach
+        </tbody>
+    </table>
+  </div>
 </div>
+
+<br> <br>
+
+<br><br>
+
 @endsection

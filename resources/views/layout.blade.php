@@ -59,6 +59,12 @@
             <i class="bi bi-people"></i>
               Funcionários</a>
           </li>
+        
+          <li class="nav-item">
+            <a class="nav-link text-light" id="hover-underline-animation" href="{{ route('product.index') }}">
+            <i class="bi bi-shop"></i>
+              Produtos</a>
+          </li>
 
           <li class="nav-item">
             <a class="nav-link text-light" id="hover-underline-animation" href="{{ route('menu.index') }}">
@@ -66,11 +72,6 @@
               Cardápios</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link text-light" id="hover-underline-animation" href="{{ route('product.index') }}">
-            <i class="bi bi-shop"></i>
-              Produtos</a>
-          </li>
 
           <li class="nav-item">
             <a class="nav-link text-light" id="hover-underline-animation" href="{{ route('order.index') }}">
